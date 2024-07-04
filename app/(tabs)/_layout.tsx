@@ -19,7 +19,7 @@ export default function TabLayout() {
         options={{
           title: 'Lea',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="home" color={color} />
+            <TabBarIcon name="woman" color={color} />
           ),
         }}
       />

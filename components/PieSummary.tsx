@@ -1,5 +1,6 @@
+import { Colors } from '@/constants/Colors';
 import { PropsWithChildren } from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View, useColorScheme } from 'react-native';
 
 import { PieChart } from 'react-native-chart-kit';
 
@@ -12,6 +13,8 @@ const data = [
 ];
 
 export function PieSummary() {
+
+  const theme = useColorScheme() ?? 'light';
   
   return (
     <View style={styles.container}>
@@ -20,9 +23,7 @@ export function PieSummary() {
         width={screenWidth}
         height={220}
         chartConfig={{
-          backgroundColor: '#1cc910',
-          backgroundGradientFrom: '#eff3ff',
-          backgroundGradientTo: '#efefef',
+          backgroundColor: theme === 'light' ? Colors.light.background : Colors.dark.background,
           decimalPlaces: 2,
           color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
           style: {
@@ -43,6 +44,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
   },
 });
